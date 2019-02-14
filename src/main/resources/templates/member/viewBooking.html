@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/head">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+
+<div class="wrapper">
+
+    <header class="main-header">
+        <div th:replace="fragments/customerheader"></div>
+    </header>
+
+
+
+    <div class="content-wrapper">
+        <section class="content-header" layout:fragment="header"></section>
+
+        <section class="content">
+
+            <div layout:fragment="content">
+
+
+                <div class="panel" style="margin-top: 50px;">
+                    <div class="page-header">
+                        <h1 align="center">View All Booking</h1>
+                    </div>
+                    <!--<div class="pull-right">-->
+
+
+                        <!--<a th:href="@{/passenger/__${reservation.bookingId}__/download.pdf}" class="btn btn-sm btn-success"> <span class="glyphicon glyphicon-download-alt"> Download Your Ticket</span> </a>-->
+                    <!--</div>-->
+
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>Booking Id</th>
+                            <th>Booking Date</th>
+                            <th>Game Date</th>
+                            <th>Game Time</th>
+                            <th>Member Full Name</th>
+                            <th>Username</th>
+                            <th>Approved</th>
+
+                        </tr>
+                        <tr th:each="b : ${booking}">
+                            <td th:text="${b.bookingId}"></td>
+                            <td th:text="${b.bookingDate}"></td>
+                            <td th:text="${b.date}"></td>
+                            <td th:text="${b.time}"></td>
+                            <td th:text="${b.memberFullName}"></td>
+                            <td th:text="${b.username}"></td>
+                            <td th:if="${b.approved}">Approved</td>
+                            <td th:unless="${b.approved}">Pending</td>
+
+
+                        </tr>
+                    </table>
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="fragments/footer">
+
+    </footer>
+
+
+</div>
+<!-- ./wrapper -->
+
+<th:block th:replace="fragments/scripts">
+
+</th:block>
+</body>
+</html>

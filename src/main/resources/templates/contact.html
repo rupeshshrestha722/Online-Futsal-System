@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/head">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="https://maps.googleapis.com/maps/api/js">
+
+    </script>
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+
+<div class="wrapper">
+
+    <header class="main-header">
+        <div th:replace="fragments/normalheader"></div>
+    </header>
+
+
+
+    <div class="content-wrapper">
+        <section class="content-header" layout:fragment="header"></section>
+
+        <section class="content">
+
+            <div layout:fragment="content">
+
+                <div class="panel">
+                    <div class="page-header">
+                        <h1 align="center">Contact Us</h1>
+                    </div>
+                    <div class="container">
+                    <div id="map" style="height: 300px; width: 100%;">
+
+                    </div>
+                    <script type="text/javascript" th:inline="javascript">
+
+
+                        function initMap() {
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                                center: {lat: 27.7177, lng: 85.2965},
+                                zoom: 8
+                            });
+
+                            var marker = new google.maps.Marker({
+                                position:{lat: 27.7177, lng: 85.2965},
+                                map:map,
+                                title:'Nepa Futsal'
+                            })
+                            var infoWindow = new google.maps.InfoWindow({
+                                content: "Welcome to Nepa Futsal"
+                            });
+
+                            marker.addListener('click',function () {
+                                infoWindow.open(map,marker);
+
+                            });
+
+
+                            // Try HTML5 geolocation.
+                            if (navigator.geolocation) {
+                                console.log("map successful")
+                                navigator.geolocation.getCurrentPosition(function (position) {
+                                    var pos = {
+                                        lat: position.coords.latitude,
+                                        lng: position.coords.longitude
+                                    };
+
+                                    infoWindow.setPosition(pos);
+                                    infoWindow.setContent('Nepa Futsal');
+                                    map.setCenter(pos);
+                                }, function () {
+                                    handleLocationError(true, infoWindow, map.getCenter());
+                                });
+                            } else {
+                                console.log("map failed")
+                                // Browser doesn't support Geolocation
+                                handleLocationError(false, infoWindow, map.getCenter());
+                            }
+                        }
+
+                        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                            infoWindow.setPosition(pos);
+                            infoWindow.setContent(browserHasGeolocation ?
+                                'Error: The Geolocation service failed.' :
+                                'Error: Your browser doesn\'t support geolocation.');
+                        }
+
+
+                    </script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp_fhP75PUVHsFhTIyZble-gaEROcLefs&amp;callback=initMap"></script>
+
+
+                    <form role="form">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="firstName" class="form-control" placeholder="Enter First Name"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Middle Name</label>
+                            <input type="text" name="middleName" class="form-control" placeholder="Enter Middle Name"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="lastName" class="form-control" placeholder="Enter Last Name"/>
+                        </div>
+                        <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" name="email" class="form-control" placeholder="Enter Email"/>
+                    </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" name="subject" class="form-control" placeholder="Enter Subject"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea  name="message" class="form-control" placeholder="Enter Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Send</button>
+                    </form>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="fragments/footer">
+
+    </footer>
+
+
+</div>
+<!-- ./wrapper -->
+
+<th:block th:replace="fragments/scripts">
+
+
+
+
+</th:block>
+</body>
+</html>
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/head">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+
+<div class="wrapper">
+
+    <header class="main-header">
+        <div th:replace="fragments/normalheader"></div>
+    </header>
+
+
+
+    <div class="content-wrapper">
+        <section class="content-header" layout:fragment="header"></section>
+
+        <section class="content">
+
+            <div layout:fragment="content">
+
+                <div class="panel">
+                    <div class="page-header">
+                        <h1 align="center">Provide Your Detail</h1>
+                    </div>
+                    <div class="container">
+                    <div class="register">
+                    <form method="post" th:action="@{/saveMember}" th:object="${member}" enctype="multipart/form-data">
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="memberFullName">Member Full Name</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="memberFullName" th:field="*{memberFullName}" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                            <label for="email">Email</label>
+                            </div>
+                            <div class="col-75">
+                            <input type="text" id="email" th:field="*{email}" />
+                        </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="username" th:field="*{username}" />
+                        </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                            <label for="password">Password</label>
+                            </div>
+                            <div class="col-75">
+                            <input type="password" id="password" th:field="*{password}" />
+                        </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-25">
+                            <label for="phone">Phone No</label>
+                            </div>
+                            <div class="col-75">
+                            <input type="text" id="phone" th:field="*{phone}" />
+                        </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                            <label for="role">Member Role</label>
+                            </div>
+                            <div class="col-75">
+                            <select  id="role" th:field="*{memberRoleList}" required="required"
+                                 >
+                                <option th:each="roleList : ${memberRoles}"
+                                        th:value="${roleList.getMemberRoleId()}"
+                                        th:utext="${roleList.getMemberRoleName()}">
+                                </option>
+
+                            </select>
+                        </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="memberType">Member Type</label>
+
+                            </div>
+                            <div class="col-75">
+                                <select type="text"   id="memberType" th:field="*{memberType}"  class="form-control ">
+                                    <option th:each="n : ${memberType}"
+                                            th:value="${n}"
+                                            th:text="${n}"
+                                    />
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <input type="submit" value="Register"/>
+
+                        </div>
+                    </form>
+
+
+                    </div>
+
+                </div>
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="fragments/footer">
+
+    </footer>
+
+
+</div>
+<!-- ./wrapper -->
+
+<th:block th:replace="fragments/scripts">
+
+</th:block>
+</body>
+</html>

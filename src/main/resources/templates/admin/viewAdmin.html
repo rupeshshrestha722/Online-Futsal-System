@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/head">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+
+<div class="wrapper">
+
+    <header class="main-header">
+        <div th:replace="fragments/adminHeader"></div>
+    </header>
+
+
+
+    <div class="content-wrapper">
+        <section class="content-header" layout:fragment="header"></section>
+
+        <section class="content">
+
+            <div layout:fragment="content">
+
+                <div class="panel" style="margin-top: 50px;">
+                    <div class="page-header">
+                        <h1 align="center">View Admin Details</h1>
+                    </div>
+
+                    <div class="pull-right">
+                        <p>
+                            <a th:href="@{/admin/addAdmin}" class="btn btn-sm btn-primary"><span
+                                    class="glyphicon glyphicon-plus"></span></a>
+                        </p>
+                    </div>
+                    <table class = "table table-bordered table-striped table-hover table-condensed" id="dataTable">
+                        <thead>
+
+                        <tr>
+                            <th>Admin Id</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th>Phone No</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+<tbody>
+                        <tr th:each="a :${admins}">
+                            <td th:text="${a.userId}"></td>
+                            <td th:text="${a.firstName} + ' ' + ${a.middleName} + ' ' + ${a.lastName}"></td>
+                            <td th:text="${a.email}"></td>
+                            <td th:text="${a.username}"></td>
+                            <td th:text="${a.phoneNo}"></td>
+
+                            <td colspan="2">
+                                <div>
+                                    <a th:href="@{/admin/editAdmin/__${a.userId}__}" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
+                                    <a th:href="@{/admin/deleteAdmin/__${a.userId}__}"  class="btn btn-danger btn-sm" onclick="return confirm('Do you really want to delete?????');"><span class="glyphicon glyphicon-trash"></span></a>
+                                </div>
+                            </td>
+
+                        </tr>
+</tbody>
+                    </table>
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="fragments/footer">
+
+    </footer>
+
+
+</div>
+<!-- ./wrapper -->
+
+<th:block th:replace="fragments/scripts">
+
+</th:block>
+</body>
+</html>

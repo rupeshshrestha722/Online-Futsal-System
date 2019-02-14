@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/head">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+
+<div class="wrapper">
+
+    <header class="main-header">
+        <div th:replace="fragments/adminHeader"></div>
+    </header>
+
+
+
+    <div class="content-wrapper">
+        <section class="content-header" layout:fragment="header"></section>
+
+        <section class="content">
+
+            <div layout:fragment="content">
+
+
+                <section id="showcase">
+                    <div class="container">
+                        <h1>Online Reservation System</h1>
+                        <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit eros et massa ultricies, pharetra iaculis urna posuere. Aenean tempus eget sapien a interdum. Phasellus egestas consequat nulla, non maximus ante iaculis sit amet. Integer id arcu eu turpis sollicitudin dapibus. Nunc porttitor sem vel diam facilisis tempor. In in luctus odio. Fusce eu massa a ligula placerat placerat non nec mauris. Maecenas tincidunt, justo id dictum finibus, lorem tellus accumsan arcu, placerat porta ex est quis diam. Vestibulum a aliquet ligula. Morbi quis dui quis metus molestie tempus. Phasellus sed elit ac ante ultricies commodo. Morbi pretium odio nec imperdiet lobortis.</p>-->
+                    </div>
+                </section>
+            </div>
+
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="fragments/footer">
+
+    </footer>
+
+
+</div>
+<!-- ./wrapper -->
+
+<th:block th:replace="fragments/scripts">
+
+</th:block>
+</body>
+</html>

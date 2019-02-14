@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/head">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+
+<div class="wrapper">
+
+    <header class="main-header">
+        <div th:replace="fragments/customerheader"></div>
+    </header>
+
+
+
+    <div class="content-wrapper">
+        <section class="content-header" layout:fragment="header"></section>
+
+        <section class="content">
+
+            <div layout:fragment="content">
+
+                <section id="showcase">
+                    <div class="container">
+                        <h1>Online Reservation System</h1>
+                        <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit eros et massa ultricies, pharetra iaculis urna posuere. Aenean tempus eget sapien a interdum. Phasellus egestas consequat nulla, non maximus ante iaculis sit amet. Integer id arcu eu turpis sollicitudin dapibus. Nunc porttitor sem vel diam facilisis tempor. In in luctus odio. Fusce eu massa a ligula placerat placerat non nec mauris. Maecenas tincidunt, justo id dictum finibus, lorem tellus accumsan arcu, placerat porta ex est quis diam. Vestibulum a aliquet ligula. Morbi quis dui quis metus molestie tempus. Phasellus sed elit ac ante ultricies commodo. Morbi pretium odio nec imperdiet lobortis.</p>-->
+                    </div>
+                </section>
+
+                <section id="newsLetter">
+                    <div class="container">
+                        <h1>Welcome to Nepa Futsal</h1>
+                        <p>Nepa Futsal is a futsal which is located in Chamati.
+
+                            Remain up-to-speed with the latest happenings in Nepal Futsal through our website (www.futsalsansar.com), Facebook (@Nepa Futsal) pages, as well as connectin g with the wider Nepal futsal community.
+
+                            In today's society with the emphasis on physical fitness, the role of sports has taken on increasing importance for both youth and adults. For many disadvantaged youth, sports are recreation and also the only viable alternative to the confines of their environment (gangs, crime, drugs, etc). Therefore it provides goodwill through physical fitness, and it promotes a productive outlet for the disadvantaged youth in our society.
+
+                            Let's keep together to promote this sports in our locality and whole nation with your valuable information, news, events with the common web platform.</p>
+
+
+
+
+                    </div>
+                </section>
+
+                <section id="boxes">
+                    <div class="container">
+                        <h2>Featured Activities</h2>
+                        <div class="box">
+                            <img th:src="@{/images/popular_1.jpg}" style="width:300px;height: 200px;"/>
+                            <h3>Maldives</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit eros et massa ultricies, pharetra iaculis urna posuere. Aenean tempus eget sapien a interdum. Phasellus egestas consequat nulla, non maximus ante iaculis sit amet. Integer id arcu eu turpis sollicitudin dapibus. Nunc porttitor sem vel diam facilisis tempor. In in luctus odio. Fusce eu massa a ligula placerat placerat non nec mauris. Maecenas tincidunt, justo id dictum finibus, lorem tellus accumsan arcu, placerat porta ex est quis diam. Vestibulum a aliquet ligula. Morbi quis dui quis metus molestie tempus. Phasellus sed elit ac ante ultricies commodo. Morbi pretium odio nec imperdiet lobortis.</p>
+                        </div>
+
+                        <div class="box">
+                            <img th:src="@{/images/popular_2.jpg}" style="width:300px;height: 200px;"/>
+                            <h3>London</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit eros et massa ultricies, pharetra iaculis urna posuere. Aenean tempus eget sapien a interdum. Phasellus egestas consequat nulla, non maximus ante iaculis sit amet. Integer id arcu eu turpis sollicitudin dapibus. Nunc porttitor sem vel diam facilisis tempor. In in luctus odio. Fusce eu massa a ligula placerat placerat non nec mauris. Maecenas tincidunt, justo id dictum finibus, lorem tellus accumsan arcu, placerat porta ex est quis diam. Vestibulum a aliquet ligula. Morbi quis dui quis metus molestie tempus. Phasellus sed elit ac ante ultricies commodo. Morbi pretium odio nec imperdiet lobortis.</p>
+                        </div>
+
+                        <div class="box">
+                            <img th:src="@{/images/popular_3.jpg}" style="width:300px; height: 200px"/>
+                            <h3>Singapore</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit eros et massa ultricies, pharetra iaculis urna posuere. Aenean tempus eget sapien a interdum. Phasellus egestas consequat nulla, non maximus ante iaculis sit amet. Integer id arcu eu turpis sollicitudin dapibus. Nunc porttitor sem vel diam facilisis tempor. In in luctus odio. Fusce eu massa a ligula placerat placerat non nec mauris. Maecenas tincidunt, justo id dictum finibus, lorem tellus accumsan arcu, placerat porta ex est quis diam. Vestibulum a aliquet ligula. Morbi quis dui quis metus molestie tempus. Phasellus sed elit ac ante ultricies commodo. Morbi pretium odio nec imperdiet lobortis.</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="fragments/footer">
+
+    </footer>
+
+
+</div>
+<!-- ./wrapper -->
+
+<th:block th:replace="fragments/scripts">
+
+</th:block>
+</body>
+</html>
+
+</html>

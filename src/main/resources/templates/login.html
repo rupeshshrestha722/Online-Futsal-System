@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/head">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+
+<div class="wrapper">
+
+	<header class="main-header">
+		<div th:replace="fragments/normalheader"></div>
+	</header>
+
+
+
+	<div class="content-wrapper">
+		<section class="content-header" layout:fragment="header"></section>
+
+		<section class="content">
+
+			<div layout:fragment="content">
+
+<div class="container">
+
+				<div class="register">
+					<form method="POST" th:action="@{/login}"  class="form-signin">
+						<div class = "page-header">
+							<h2 class="form-heading" align="center">Provide Your Credntials</h2>
+						</div>
+						<div th:if="${error}">
+							<div class="alert alert-danger">
+								Incorrect Username and Password
+							</div>
+						</div>
+
+						<div th:if="${message}">
+							<div class="alert alert-info">
+								Logout Successfully
+							</div>
+						</div>
+
+
+
+						<div class = "row">
+							<div class="col-25">
+							<label for="username">Username</label>
+							</div>
+							<div class="col-75">
+							<input name="username" id="username" type="text" class="form-control" placeholder="Username"
+								   required = "required" autofocus="true"/>
+							</div>
+
+						</div>
+
+						<div class = "row">
+							<div class="col-25">
+							<label for="password">Password</label>
+							</div>
+							<div class="col-75">
+							<input name="password"  id="password" type="password" class="form-control" placeholder="Password"
+								   required="required"/>
+							</div>
+						</div>
+
+
+						<input type="submit" value="Login"/>
+                       <!--<a th:href="@{/register}" class="btn btn-success btn-sm">Register New User</a>-->
+
+					</form>
+				</div>
+
+
+
+
+
+
+
+
+			</div>
+			</div>
+
+		</section>
+	</div>
+	<footer class="main-footer" th:replace="fragments/footer">
+
+	</footer>
+
+
+</div>
+<!-- ./wrapper -->
+
+<th:block th:replace="fragments/scripts">
+
+</th:block>
+</body>
+</html>

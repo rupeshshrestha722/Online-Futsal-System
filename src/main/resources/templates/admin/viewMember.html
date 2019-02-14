@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/head">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini">
+
+<div class="wrapper">
+
+    <header class="main-header">
+        <div th:replace="fragments/adminHeader"></div>
+    </header>
+
+
+
+    <div class="content-wrapper">
+        <section class="content-header" layout:fragment="header"></section>
+
+        <section class="content">
+
+            <div layout:fragment="content">
+
+                <div class="panel" style="margin-top: 50px;">
+                    <div class="page-header">
+                        <h1 align="center">View Member Details</h1>
+                    </div>
+
+                    <table class = "table table-bordered table-striped table-hover table-condensed" id="dataTable">
+                        <thead>
+                        <tr>
+                            <th>Member Id</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th>Phone No</th>
+                            <th>Member Type</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+
+                        <tr th:each="m :${members}">
+                            <td th:text="${m.memberId}"></td>
+                            <td th:text="${m.memberFullName}"></td>
+                            <td th:text="${m.email}"></td>
+                            <td th:text="${m.username}"></td>
+                            <td th:text="${m.phone}"></td>
+                            <td th:text="${m.memberType}"></td>
+
+                            <td colspan="2">
+                                <div>
+                                    <a th:href="@{/admin/editMember/__${m.memberId}__}" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-pencil"></span></a>
+                                    <a th:href="@{/admin/deleteMember/__${m.memberId}__}"  class="btn btn-danger btn-sm" onclick="return confirm('Do you really want to delete?????');"><span class="glyphicon glyphicon-trash"></span></a>
+                                </div>
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </section>
+    </div>
+    <footer class="main-footer" th:replace="fragments/footer">
+
+    </footer>
+
+
+</div>
+<!-- ./wrapper -->
+
+<th:block th:replace="fragments/scripts">
+
+</th:block>
+</body>
+</html>

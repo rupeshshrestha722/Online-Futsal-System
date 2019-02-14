@@ -1,0 +1,33 @@
+
+
+<header>
+    <div class="container">
+        <div id ="branding">
+            <h1><span class="highlight">Nepa</span>Futsal System</h1>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a th:href="@{/admin/viewBooking}">View Booking List</a>
+                </li>
+                <li>
+                    <a th:href="@{/admin/viewMember}">View Member</a>
+                </li>
+                <li>
+                    <a th:href="@{/admin/viewAdmin}">View Admin</a>
+                </li>
+
+                <li>
+                    <a th:href="@{/logout}">Logout</a>
+                </li>
+                <li>
+                    <p >Welcome <span class="hidden-xs" th:text="${userfullname}" style="color: #ffffff;"></span></p>
+
+                </li>
+            </ul>
+
+        </nav>
+
+    </div>
+</header>
+
